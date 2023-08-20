@@ -13,10 +13,10 @@ window.addEventListener("DOMContentLoaded", () => {
     // onFileChange event
     fileInput.addEventListener("change", (e) => {
         player.src = URL.createObjectURL(e.target.files[0]);
+        analyzerData = createAnalyzer(analyzerData, player);
     });
 
     player.addEventListener("timeupdate", () => {
-        analyzerData = createAnalyzer(analyzerData, player);
         drawAudioWave(analyzerData, waveContainer);
     });
 
